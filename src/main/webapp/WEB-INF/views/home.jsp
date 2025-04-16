@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h1>Home Gradle</h1>
+	<img alt="" src="/images/아미르.jpg">
 </body>
 </html>
