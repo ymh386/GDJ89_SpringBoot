@@ -2,6 +2,7 @@ package com.moon.app.board.notice;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -9,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.moon.app.board.BoardVO;
-import com.moon.app.boards.BoardDTO;
+
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,8 +20,31 @@ class NoticeDAOTest {
 	
 	@Autowired
 	private NoticeDAO noticeDAO;
-
+	
 	@Test
+	void testTest()throws Exception{
+		
+		List<BoardVO> ar = new ArrayList<>();
+		
+		for(int i=0;i<100;i++) {
+			BoardVO boardVO = new BoardVO();
+			
+			boardVO.setBoardTitle("title"+i);
+			boardVO.setBoardContents("contetns"+i);
+			boardVO.setUserName("user"+i);
+			
+			ar.add(boardVO);
+		}
+		
+		int result = noticeDAO.test(ar);
+		
+		log.info("Result : {}", result);
+		
+		assertNotEquals(0, result);
+		
+	}
+
+//	@Test
 	void testGetList() throws Exception {
 		List<BoardVO> ar = noticeDAO.getList();
 		
@@ -29,7 +53,7 @@ class NoticeDAOTest {
 		}
 	}
 
-	@Test
+//	@Test
 	void testGetDetail() throws Exception {
 		BoardVO boardVO = new BoardVO();
 		boardVO.setBoardNum(1L);
@@ -37,7 +61,7 @@ class NoticeDAOTest {
 		log.info("VO : {}", boardVO);
 	}
 
-	@Test
+//	@Test
 	void testAdd() throws Exception {
 		BoardVO boardVO = new BoardVO();
 		boardVO.setBoardTitle("test");

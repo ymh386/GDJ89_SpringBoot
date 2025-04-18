@@ -2,19 +2,17 @@ package com.moon.app.board;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.moon.app.home.util.Pager;
 
-public interface BoardDAO {
-	
-	public Long getTotalCount(Pager pager)throws Exception;
+public interface BoardService {
 	
 	public List<BoardVO> getList(Pager pager) throws Exception;
 	
 	public BoardVO getDetail(BoardVO boardVO) throws Exception;
 	
-	public int add(BoardVO boardVO) throws Exception;
-	
-	public int addFile(BoardFileVO boardFileVO) throws Exception;
+	public int add(BoardVO boardVO, MultipartFile [] multipartFiles) throws Exception;
 	
 	public BoardFileVO getFileDetail(BoardFileVO boardFileVO) throws Exception;
 

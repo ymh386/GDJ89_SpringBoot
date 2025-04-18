@@ -19,8 +19,21 @@
 				<c:import url="/WEB-INF/views//templates/topbar.jsp"></c:import>
 				<div class="container-fluid">
 				<!-- contents 영역 -->
-				<h1>Sample</h1>
-				
+					<!-- Basic Card Example -->
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">
+								${vo.boardTitle}
+							</h6>
+						</div>
+						<div class="card-body">
+							${vo.boardContents}
+						</div>
+						<c:forEach items="${vo.boardFileVOs}" var="f">
+							<a href="./fileDown?fileNum=${f.fileNum}">${f.oldName}</a>
+							<%-- <img alt="" src="/files/${kind}/${f.fileName}"> --%>
+						</c:forEach>
+					</div>
 			
 					
 				</div>
